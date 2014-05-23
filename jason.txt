@@ -1,4 +1,5 @@
 hello my name is jay z 
+<<<<<<< HEAD
 peace this is my life story I was born in 1986 older of 4 siblings
 
 
@@ -13,4 +14,6 @@ peace this is my life story I was born in 1986 older of 4 siblings
 
 
 
+
 now 28 years and a couple of months I decided to become a writer.
+what the way
