@@ -1,0 +1,72 @@
+<!doctype html>
+<html ng-app="demoApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular-resource.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular-route.min.js">
+    </script>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
+  </head>
+	<body ng-controller="simpleController" >
+
+		<input type="text" ng-model="name">
+		{{name}}
+
+		<ul >
+				<li ng-repeat="cust in customers | filter:name |orderBy:'name'">{{cust.name+' '+cust.city | uppercase}} -- User Name: {{cust.name | lowercase}} </li>
+		</ul>
+
+
+
+		<script type="text/javascript" >
+
+			var demoApp=angular.module("demoApp",[/*dependencies modules*/]);
+			var controllers ={};
+			controllers.simpleController=function ($scope){
+				
+				$scope.customers=[{name:'jason', city:'hatillo town'},
+								  {name:'ronaldo', city:'lisbon'},
+							  	  {name:'Bart',city:'Springfield'},
+							  	  {name:'jack', city:'Town'},
+							  	  {name:'Homer',city:'Springfield'}];
+			}			  	  
+				demoApp.controller(controllers);
+
+
+			/*demoApp.controller('simpleController',function ($scope){		
+				$scope.customers=[{name:'jason', city:'hatillo town'},
+								  {name:'ronaldo', city:'lisbon'},
+							  	  {name:'Bart',city:'Springfield'},
+							  	  {name:'jack', city:'Conce Town'},
+							  	  {name:'Homer',city:'Springfield'}];
+			});*/
+
+
+			
+		</script>
+	</body>
+</html>
+
+<!--
+	Expressions:
+	bind data
+	expressions{{condition}} cant have conditionals
+	----------------------------------
+	Directives
+	ng-app tells in an angular directive
+	ng-model="propertyName" adds a property in ng-scope
+	ng-init: initialize data <div ng-init="customers=[{name:'jason', city:'hatillo town'}, {name:'jack', city:'Conce Town'}, {name:'ronaldo', city:'lisbon'},{name:'Bart',city:'Springfield'},{name:'Homer',city:'Springfield'}  ]"></div>
+	------------------------------------
+	Filters:
+	use | for filters
+	develop -> api references
+
+	------------------------------------
+	Controllers:
+	You can have different controllers for the different parts of a given page.
+	$scope is the glue between a controller and a view
+
+
+-->
